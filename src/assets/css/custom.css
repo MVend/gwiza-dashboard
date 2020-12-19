@@ -1,0 +1,36 @@
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: none;
+}
+.close-icon :hover {
+  color: rgb(175, 13, 13);
+  cursor: pointer;
+}
+.hover-icon :hover {
+  cursor: pointer;
+}
+.float_right {
+  float: right;
+}
+.no-data-text {
+  text-align: right;
+}
+.text_white {
+  color: #ffffff;
+}
+.file_upload {
+  width: 100px;
+  height: 100px;
+}
+.semi-dark {
+  background: #ddd;
+}
+@media (max-width: 767px) {
+  .hide-sm {
+    display: none;
+  }
+  .float_right {
+    float: none;
+  }
+}
