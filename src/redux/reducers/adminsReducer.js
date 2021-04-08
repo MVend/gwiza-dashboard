@@ -6,7 +6,7 @@ import {
   CREATE_ADMIN_SUCCESS,
   CREATE_ADMIN_ERROR,
   DELETE_ADMIN_SUCCESS,
-} from "../actions";
+} from "../types";
 
 const initialState = {
   isLoading: false,

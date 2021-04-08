@@ -1,4 +1,5 @@
-import { GET_DASHBOARD_STARTS, GET_DASHBOARD_SUCCESS } from "../actions";
+/* eslint-disable import/no-anonymous-default-export */
+import { GET_DASHBOARD_STARTS, GET_DASHBOARD_SUCCESS } from "../types";
 
 const initialState = {
   isLoading: false,

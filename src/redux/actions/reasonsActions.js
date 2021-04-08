@@ -12,7 +12,7 @@ import {
   GET_ONE_REASON_SUCCESS,
   GET_ONE_REASON_START,
   CREATE_REASON_SUCCESS,
-} from ".";
+} from "../types";
 
 export const createReason = (data) => async (dispatch) => {
   try {

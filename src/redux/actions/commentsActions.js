@@ -8,7 +8,7 @@ import {
   CREATE_COMMENT_START,
   CREATE_COMMENT_SUCCESS,
   CREATE_COMMENT_ERROR,
-} from ".";
+} from "../types";
 
 export const createComment = (data) => async (dispatch) => {
   try {

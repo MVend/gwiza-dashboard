@@ -7,7 +7,7 @@ import {
   CREATE_REASON_ERROR,
   DELETE_REASON_SUCCESS,
   UPDATE_REASON_SUCCESS,
-} from "../actions";
+} from "../types";
 
 const initialState = {
   isLoading: false,

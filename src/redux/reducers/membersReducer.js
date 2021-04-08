@@ -8,7 +8,7 @@ import {
   DELETE_MEMBER_SUCCESS,
   UPDATE_MEMBER_SUCCESS,
   UPLOAD_MEMBERS_SUCCESS,
-} from "../actions";
+} from "../types";
 
 const initialState = {
   isLoading: false,

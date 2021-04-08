@@ -12,7 +12,7 @@ import {
   DELETE_MEMBER_SUCCESS,
   UPDATE_MEMBER_SUCCESS,
   UPLOAD_MEMBERS_SUCCESS,
-} from ".";
+} from "../types";
 
 export const findAll = (data) => async (dispatch) => {
   try {

@@ -6,7 +6,7 @@ import {
   FIND_CELL_SUCCESS,
   FIND_VILLAGE_SUCCESS,
   FIND_LOCATION_ERROR,
-} from "../actions";
+} from "../types";
 
 const initialState = {
   isLoading: false,

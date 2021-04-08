@@ -6,7 +6,7 @@ import {
   CREATE_APPROVAL_ERROR,
   UPDATE_APPROVAL_SUCCESS,
   CREATE_APPROVAL_SUCCESS,
-} from "../actions";
+} from "../types";
 
 const initialState = {
   isLoading: false,

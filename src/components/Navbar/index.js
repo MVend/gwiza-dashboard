@@ -39,6 +39,9 @@ const NavBar = () => {
         <Link to="/groups" className="nav-link text_white">
           Groups
         </Link>
+        <Link to="/migration" className="nav-link text_white">
+          Migration
+        </Link>
       </Nav>
       <Nav>
         <NavDropdown style={{ minWidth: "150px" }} title={name}>

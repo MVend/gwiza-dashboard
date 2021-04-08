@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import HttpRequest from "../../services/HttpRequest";
 import creator from "./creator";
-import { GET_DASHBOARD_STARTS, GET_DASHBOARD_SUCCESS } from ".";
+import { GET_DASHBOARD_STARTS, GET_DASHBOARD_SUCCESS } from "../types";
 
 export const getDashboardData = () => async (dispatch) => {
   try {

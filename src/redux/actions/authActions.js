@@ -8,7 +8,7 @@ import {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
-} from ".";
+} from "../types";
 import AuthToken from "../../utils/authToken";
 
 export const createAccount = (data) => async (dispatch) => {
