@@ -9,7 +9,7 @@ import {
   FIND_CELL_SUCCESS,
   FIND_VILLAGE_SUCCESS,
   FIND_LOCATION_ERROR,
-} from ".";
+} from "../types";
 
 export const findProvinces = () => async (dispatch) => {
   try {

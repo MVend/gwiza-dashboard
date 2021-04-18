@@ -147,8 +147,11 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
                         <td>{row.group_code}</td>
                         <td>
                           {row.location &&
-                            ` ${row.location.district_name} -
-                              ${row.location.sector_name}`}
+                            ` ${row.location?.district_name} -
+                              ${row.location?.sector_name}`}
+                          {!row?.location &&
+                            `${row?.district} -
+                              ${row?.sector}`}
                         </td>
                         <td>
                           {row.day_of_meeting} {row.time_of_meeting}{" "}

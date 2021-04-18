@@ -7,7 +7,7 @@ import {
   CREATE_COMMENT_ERROR,
   DELETE_COMMENT_SUCCESS,
   UPDATE_COMMENT_SUCCESS,
-} from "../actions";
+} from "../types";
 
 const initialState = {
   isLoading: false,

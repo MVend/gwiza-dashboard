@@ -9,7 +9,7 @@ import {
   CREATE_APPROVAL_ERROR,
   UPDATE_APPROVAL_SUCCESS,
   CREATE_APPROVAL_SUCCESS,
-} from ".";
+} from "../types";
 
 export const create = (data) => async (dispatch) => {
   try {

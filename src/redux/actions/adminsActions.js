@@ -9,7 +9,7 @@ import {
   GET_ADMINS_ERROR,
   GET_ADMINS_START,
   DELETE_ADMIN_SUCCESS,
-} from ".";
+} from "../types";
 
 export const findAll = (data) => async (dispatch) => {
   try {

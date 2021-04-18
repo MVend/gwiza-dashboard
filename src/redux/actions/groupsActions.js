@@ -15,7 +15,7 @@ import {
   CREATE_MEMBER_START,
   CREATE_MEMBER_ERROR,
   UPLOAD_MEMBERS_SUCCESS,
-} from ".";
+} from "../types";
 
 export const createGroup = (data) => async (dispatch) => {
   try {

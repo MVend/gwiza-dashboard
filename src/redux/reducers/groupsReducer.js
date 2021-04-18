@@ -9,7 +9,7 @@ import {
   UPDATE_GROUP_SUCCESS,
   GET_ONE_GROUP_SUCCESS,
   GET_ONE_GROUP_START,
-} from "../actions";
+} from "../types";
 
 const initialState = {
   isLoading: false,

@@ -84,7 +84,7 @@ const Members = ({ members, findAll, search }) => {
             >
               <thead>
                 <tr>
-                  <th>Member ID</th>
+                  <th>Member Number</th>
                   <th>Name</th>
                   <th>National ID</th>
                   <th>Phone number</th>
@@ -106,7 +106,7 @@ const Members = ({ members, findAll, search }) => {
                   totalItems > 0 &&
                   rows.map((row) => (
                     <tr key={row.member_id}>
-                      <td>{row.member_id}</td>
+                      <td>{row.member_number}</td>
                       <td>
                         {row.first_name} {row.last_name}
                       </td>
