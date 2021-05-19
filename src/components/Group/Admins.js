@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Card, Col, Form, Row, Table, Spinner } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { connect } from "react-redux";
-import { findAll, remove } from "../../redux/actions/adminsActions";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Link, useParams } from "react-router-dom";
-import NewAdmin from "../Forms/NewAdmin";
-import { getLoggedUserInfo } from "../../utils/helpers";
+import React, { useEffect, useState } from 'react';
+import { Card, Col, Form, Row, Table, Spinner } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { connect } from 'react-redux';
+import { findAll, remove } from '../../redux/actions/adminsActions';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Link, useParams } from 'react-router-dom';
+import NewAdmin from '../forms/NewAdmin';
+import { getLoggedUserInfo } from '../../utils/helpers';
 
 const Admins = ({ admins, findAll, remove }) => {
   const { access_level } = getLoggedUserInfo();
@@ -30,7 +30,7 @@ const Admins = ({ admins, findAll, remove }) => {
   }, []);
 
   const deleteAdmin = (admin_id) => {
-    const confirmed = window.confirm("Are you sure? This cannot be undone");
+    const confirmed = window.confirm('Are you sure? This cannot be undone');
     if (confirmed) return remove(admin_id);
   };
 
@@ -46,9 +46,7 @@ const Admins = ({ admins, findAll, remove }) => {
                 <Form lg="3" className="float-right">
                   <Form.Group as={Row}>
                     <Col>
-                      <div className="float-right">
-                        {access_level === "2" && <NewAdmin />}
-                      </div>
+                      <div className="float-right">{access_level === '2' && <NewAdmin />}</div>
                     </Col>
                   </Form.Group>
                 </Form>
@@ -65,7 +63,7 @@ const Admins = ({ admins, findAll, remove }) => {
                 <tr>
                   <th>Name</th>
                   <th>Phone number</th>
-                  {access_level === "2" && <th>Action</th>}
+                  {access_level === '2' && <th>Action</th>}
                 </tr>
               </thead>
               <tbody>
@@ -83,11 +81,9 @@ const Admins = ({ admins, findAll, remove }) => {
                   totalItems > 0 &&
                   rows.map((row) => (
                     <tr key={row.id}>
-                      <td>
-                        {/* {row.user.first_name} {row.user.last_name} */}
-                      </td> 
+                      <td>{/* {row.user.first_name} {row.user.last_name} */}</td>
                       <td>{row.phone_number}</td>
-                      {access_level === "2" && (
+                      {access_level === '2' && (
                         <td>
                           <Link
                             className="pl-3 hover-icon"

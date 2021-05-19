@@ -9,7 +9,7 @@ import {
   UPDATE_GROUP_SUCCESS,
   GET_ONE_GROUP_SUCCESS,
   GET_ONE_GROUP_START,
-} from "../types";
+} from '../types';
 
 const initialState = {
   isLoading: false,
@@ -100,14 +100,12 @@ export default (state = initialState, { type, payload }) => {
         values: {
           ...state.values,
           rows: state.values.rows.map((value) =>
-            value.group_id !== payload.group_id ? value : payload
+            value.group_id !== payload.group_id ? value : payload,
           ),
         },
       };
     case DELETE_GROUP_SUCCESS:
-      const rows = state.values.rows.filter(
-        ({ group_id }) => group_id !== payload
-      );
+      const rows = state.values.rows.filter(({ group_id }) => group_id !== payload);
       return {
         ...state,
         isLoading: false,

@@ -1,13 +1,10 @@
-import React from "react";
-import NavBar from "../components/Navbar";
-import MigrationSteps from "../components/Steps";
+import React from 'react';
+import Container from '../components/container';
+import MigrationSteps from '../components/steps';
 
-const Migration = () => {
-  return (
-    <>
-      <NavBar />
-      <MigrationSteps />
-    </>
-  );
-};
+const Migration = () => (
+  <Container pageTitle="Migration">
+    <MigrationSteps />
+  </Container>
+);
 export default Migration;

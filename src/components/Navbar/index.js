@@ -42,6 +42,11 @@ const NavBar = () => {
         <Link to="/migration" className="nav-link text_white">
           Migration
         </Link>
+        <NavDropdown style={{ minWidth: "150px" }} title="Support">
+          <NavDropdown.Item href="/support">
+            Logs
+          </NavDropdown.Item>
+        </NavDropdown>
       </Nav>
       <Nav>
         <NavDropdown style={{ minWidth: "150px" }} title={name}>
