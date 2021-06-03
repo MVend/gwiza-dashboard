@@ -1,6 +1,7 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState } from "react";
 import { Steps, Button, message } from "antd";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { migrateAction } from "../../redux/actions/migrateAction";
 import * as types from "../../redux/types";
@@ -93,14 +94,14 @@ const MigrationSteps = ({ migrate, migrations }) => {
       current === 0
         ? { endpoint: "/groups", actionType: types.MIGRATE_GROUPS }
         : current === 1
-        ? { endpoint: "/wallets", actionType: types.MIGRATE_WALLETS }
-        : current === 2
-        ? { endpoint: "/reasons", actionType: types.MIGRATE_REASONS }
-        : current === 3
-        ? { endpoint: "/members", actionType: types.MIGRATE_MEMBERS }
-        : current === 4
-        ? { endpoint: "/admins", actionType: types.MIGRATE_ADMINS }
-        : { endpoint: "/", actionType: types.COMPLETE_MIGRATIONS };
+          ? { endpoint: "/wallets", actionType: types.MIGRATE_WALLETS }
+          : current === 2
+            ? { endpoint: "/reasons", actionType: types.MIGRATE_REASONS }
+            : current === 3
+              ? { endpoint: "/members", actionType: types.MIGRATE_MEMBERS }
+              : current === 4
+                ? { endpoint: "/admins", actionType: types.MIGRATE_ADMINS }
+                : { endpoint: "/", actionType: types.COMPLETE_MIGRATIONS };
 
     migrate("get", action.endpoint, action.actionType);
     setCurrent(current + 1);
@@ -109,42 +110,31 @@ const MigrationSteps = ({ migrate, migrations }) => {
   return (
     <>
       <Container fluid>
-        <Row className="mt-3">
-          <Col>
-            <Card>
-              <Card.Header>
-                Migrate Staging Groups to the production Database
-              </Card.Header>
-              <Card.Body>
-                <Steps current={current}>
-                  {steps.map((item) => (
-                    <Step key={item.title} title={item.title} />
-                  ))}
-                </Steps>
-                <div className="m-4">{steps[current].content}</div>
-                <div className="mt-3">
-                  {current < steps.length - 1 && (
-                    <Button
-                      type="primary"
-                      loading={migrations.isLoading}
-                      onClick={() => next()}
-                    >
-                      {current === steps.length - 1 ? "Finish" : "Next"}
-                    </Button>
-                  )}
-                  {current === steps.length - 1 && (
-                    <Button
-                      type="primary"
-                      onClick={() => message.success("Migration completed")}
-                    >
+        <Steps current={current}>
+          {steps.map((item) => (
+            <Step key={item.title} title={item.title} />
+          ))}
+        </Steps>
+        <div className="m-4">{steps[current].content}</div>
+        <div className="mt-3">
+          {current < steps.length - 1 && (
+            <Button
+              type="primary"
+              loading={migrations.isLoading}
+              onClick={() => next()}
+            >
+              {current === steps.length - 1 ? "Finish" : "Next"}
+            </Button>
+          )}
+          {current === steps.length - 1 && (
+            <Button
+              type="primary"
+              onClick={() => message.success("Migration completed")}
+            >
                       Finish
-                    </Button>
-                  )}
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+            </Button>
+          )}
+        </div>
       </Container>
     </>
   );

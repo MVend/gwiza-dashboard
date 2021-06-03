@@ -1,27 +1,19 @@
-import React, { useEffect, useState } from "react";
-import {
-  Card,
-  Col,
-  Container,
-  Pagination,
-  Spinner,
-  Row,
-  Table,
-} from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { connect } from "react-redux";
-import { findAll, search } from "../../redux/actions/groupsActions";
-import { faEdit, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import NewGroup from "../Forms/NewGroup";
-import Search from "../Forms/Search";
-import { getLoggedUserInfo } from "../../utils/helpers";
-import Uploader from "../Forms/Uploader";
+import React, { useEffect, useState } from 'react';
+import { Card, Col, Container, Pagination, Spinner, Row, Table } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { connect } from 'react-redux';
+import { findAll, search } from '../../redux/actions/groupsActions';
+import { faEdit, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import NewGroup from '../forms/NewGroup';
+import Search from '../forms/Search';
+import { getLoggedUserInfo } from '../../utils/helpers';
+import Uploader from '../forms/Uploader';
 
 const GroupsTable = ({ groups, findAllGroups, search }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [group, setGroup] = useState();
-  const [searchHint, setSearchHint] = useState("");
+  const [searchHint, setSearchHint] = useState('');
   const { access_level } = getLoggedUserInfo();
   const {
     isLoading,
@@ -41,7 +33,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
   }, [paginater]);
 
   useEffect(() => {
-    if (searchHint === "") return findAllGroups(paginater);
+    if (searchHint === '') return findAllGroups(paginater);
   }, [searchHint]);
 
   const handleEdit = (row) => {
@@ -63,7 +55,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
           disabled={currentPage === i ? true : false}
         >
           {i + 1}
-        </Pagination.Item>
+        </Pagination.Item>,
       );
     }
   }
@@ -75,7 +67,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
           disabled={currentPage === i ? true : false}
         >
           {i + 1}
-        </Pagination.Item>
+        </Pagination.Item>,
       );
     }
   }
@@ -88,14 +80,10 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
             <Card.Header>
               Groups
               <div className="float-right">
-                {access_level === "2" && (
+                {access_level === '2' && (
                   <>
                     <Uploader type="group" />
-                    <NewGroup
-                      group={group}
-                      closeModal={() => setIsEdit(false)}
-                      isEdit={isEdit}
-                    />
+                    <NewGroup group={group} closeModal={() => setIsEdit(false)} isEdit={isEdit} />
                   </>
                 )}
               </div>
@@ -112,7 +100,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
                 <thead>
                   <tr>
                     <th>Group ID</th>
-                    {access_level === "1" && <th>Organization</th>}
+                    {access_level === '1' && <th>Organization</th>}
                     <th>Group Name</th>
                     <th>Group Code</th>
                     <th>Group Location</th>
@@ -138,10 +126,8 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
                       <tr key={row.group_id}>
                         <td>{row.group_id}</td>
 
-                        {access_level === "1" && (
-                          <td>
-                            {row.organization && row.organization.org_name}
-                          </td>
+                        {access_level === '1' && (
+                          <td>{row.organization && row.organization.org_name}</td>
                         )}
                         <td>{row.group_name}</td>
                         <td>{row.group_code}</td>
@@ -154,18 +140,15 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
                               ${row?.sector}`}
                         </td>
                         <td>
-                          {row.day_of_meeting} {row.time_of_meeting}{" "}
+                          {row.day_of_meeting} {row.time_of_meeting}{' '}
                         </td>
                         <td>{row.group_status}</td>
                         <td>
-                          <Link
-                            className="pl-3 hover-icon"
-                            to={`/groups/${row.group_id}`}
-                          >
+                          <Link className="pl-3 hover-icon" to={`/groups/${row.group_id}`}>
                             <FontAwesomeIcon icon={faSearch} />
                           </Link>
 
-                          {access_level === "2" && (
+                          {access_level === '2' && (
                             <Link
                               className="pl-3 hover-icon"
                               to="#"
@@ -182,18 +165,14 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
               <Pagination className="float_right">
                 <Pagination.Prev
                   disabled={currentPage === 0}
-                  onClick={() =>
-                    setPaginater({ ...paginater, page: paginater.page - 1 })
-                  }
+                  onClick={() => setPaginater({ ...paginater, page: paginater.page - 1 })}
                 />
                 {PaginationItems.map((value) => value)}
                 {totalPages > 4 && (
                   <>
                     {totalPages > 5 && <Pagination.Ellipsis />}
                     <Pagination.Item
-                      onClick={() =>
-                        setPaginater({ ...paginater, page: totalPages - 1 })
-                      }
+                      onClick={() => setPaginater({ ...paginater, page: totalPages - 1 })}
                       disabled={currentPage === totalPages - 1 ? true : false}
                     >
                       {totalPages}
@@ -202,9 +181,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
                 )}
                 <Pagination.Next
                   disabled={currentPage === totalPages - 1}
-                  onClick={() =>
-                    setPaginater({ ...paginater, page: paginater.page + 1 })
-                  }
+                  onClick={() => setPaginater({ ...paginater, page: paginater.page + 1 })}
                 />
               </Pagination>
             </Card.Body>

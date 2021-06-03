@@ -3,10 +3,10 @@ import { useDropzone } from "react-dropzone";
 import { Button, Modal, Spinner } from "react-bootstrap";
 import { UploadCloud } from "react-feather";
 import { useParams } from "react-router-dom";
-import { upload as uploadMembers } from "../../redux/actions/membersActions";
-import { upload as uploadGroup } from "../../redux/actions/groupsActions";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
+import { upload as uploadMembers } from "../../redux/actions/membersActions";
+import { upload as uploadGroup } from "../../redux/actions/groupsActions";
 
 const Uploader = ({
   type,
@@ -41,7 +41,7 @@ const Uploader = ({
     if (type === "members") {
       formData.append("members_file", selectedFile);
       return uploadMembers(formData, group_id);
-    } else if (type === "group") {
+    } if (type === "group") {
       formData.append("group_file", selectedFile);
       return uploadGroup(formData);
     }

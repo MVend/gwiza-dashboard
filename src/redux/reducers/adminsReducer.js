@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import {
   GET_ADMINS_SUCCESS,
   GET_ADMINS_ERROR,
@@ -6,7 +7,7 @@ import {
   CREATE_ADMIN_SUCCESS,
   CREATE_ADMIN_ERROR,
   DELETE_ADMIN_SUCCESS,
-} from "../types";
+} from '../types';
 
 const initialState = {
   isLoading: false,
@@ -72,9 +73,7 @@ export default (state = initialState, { type, payload }) => {
       };
 
     case DELETE_ADMIN_SUCCESS:
-      const rows = state.values.rows.filter(
-        ({ id }) => id !== payload
-      );
+      const rows = state.values.rows.filter(({ id }) => id !== payload);
       return {
         ...state,
         isLoading: false,

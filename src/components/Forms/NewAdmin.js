@@ -48,17 +48,15 @@ const NewAdmin = ({
             <Select
               className="basic-single"
               classNamePrefix="select"
-              isClearable={true}
-              isSearchable={true}
+              isClearable
+              isSearchable
               onChange={setMember}
               name="admin"
-              options={rows.map((row) => {
-                return {
-                  user: row,
-                  label: `${row.first_name} ${row.last_name} - ${row.phone_number}`,
-                  value: row.phone_number,
-                };
-              })}
+              options={rows.map((row) => ({
+                user: row,
+                label: `${row.first_name} ${row.last_name} - ${row.phone_number}`,
+                value: row.phone_number,
+              }))}
               placeholder="Search a member"
             />
           </Form>

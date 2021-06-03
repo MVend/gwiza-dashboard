@@ -1,13 +1,10 @@
-import React from "react";
-import Group from "../components/Group";
-import NavBar from "../components/Navbar/";
+import React from 'react';
+import Container from '../components/container';
+import Group from '../components/group';
 
-const GroupDetails = () => {
-  return (
-    <>
-      <NavBar />
-      <Group />
-    </>
-  );
-};
+const GroupDetails = () => (
+  <Container pageTitle="Group Details">
+    <Group />
+  </Container>
+);
 export default GroupDetails;
