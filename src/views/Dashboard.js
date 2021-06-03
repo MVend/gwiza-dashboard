@@ -1,13 +1,10 @@
-import React from "react";
-import Statistics from "../components/Statistics/index";
-import NavBar from "../components/Navbar";
+import React from 'react';
+import Container from '../components/container';
+import Statistics from '../components/statistics/index';
 
-const Dashboard = () => {
-  return (
-    <>
-      <NavBar />
-      <Statistics />
-    </>
-  );
-};
+const Dashboard = () => (
+  <Container pageTitle="Dashboard">
+    <Statistics />
+  </Container>
+);
 export default Dashboard;

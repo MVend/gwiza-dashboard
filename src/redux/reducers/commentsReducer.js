@@ -7,7 +7,7 @@ import {
   CREATE_COMMENT_ERROR,
   DELETE_COMMENT_SUCCESS,
   UPDATE_COMMENT_SUCCESS,
-} from "../types";
+} from '../types';
 
 const initialState = {
   isLoading: false,
@@ -79,15 +79,11 @@ export default (state = initialState, { type, payload }) => {
         btnLoading: false,
         values: {
           ...state.values,
-          rows: state.values.rows.map((value) =>
-            value.id !== payload.id ? value : payload
-          ),
+          rows: state.values.rows.map((value) => (value.id !== payload.id ? value : payload)),
         },
       };
     case DELETE_COMMENT_SUCCESS:
-      const rows = state.values.rows.filter(
-        ({ id }) => id !== payload
-      );
+      const rows = state.values.rows.filter(({ id }) => id !== payload);
       return {
         ...state,
         isLoading: false,

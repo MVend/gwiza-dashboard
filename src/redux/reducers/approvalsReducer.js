@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import {
   GET_APPROVALS_SUCCESS,
   GET_APPROVALS_ERROR,
@@ -6,7 +7,7 @@ import {
   CREATE_APPROVAL_ERROR,
   UPDATE_APPROVAL_SUCCESS,
   CREATE_APPROVAL_SUCCESS,
-} from "../types";
+} from '../types';
 
 const initialState = {
   isLoading: false,
@@ -88,7 +89,7 @@ export default (state = initialState, { type, payload }) => {
             value.group_id !== payload.group_id &&
             value.approved !== false
               ? value
-              : {}
+              : {},
           ),
         },
       };

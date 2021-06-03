@@ -8,7 +8,7 @@ import {
   DELETE_MEMBER_SUCCESS,
   UPDATE_MEMBER_SUCCESS,
   UPLOAD_MEMBERS_SUCCESS,
-} from "../types";
+} from '../types';
 
 const initialState = {
   isLoading: false,
@@ -81,7 +81,7 @@ export default (state = initialState, { type, payload }) => {
         values: {
           ...state.values,
           rows: state.values.rows.map((value) =>
-            +value.member_id !== +payload.member_id ? value : payload
+            +value.member_id !== +payload.member_id ? value : payload,
           ),
         },
       };
@@ -99,9 +99,7 @@ export default (state = initialState, { type, payload }) => {
         },
       };
     case DELETE_MEMBER_SUCCESS:
-      const rows = state.values.rows.filter(
-        ({ member_id }) => member_id !== payload
-      );
+      const rows = state.values.rows.filter(({ member_id }) => member_id !== payload);
       return {
         ...state,
         isLoading: false,

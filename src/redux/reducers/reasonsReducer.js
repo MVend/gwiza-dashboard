@@ -7,7 +7,7 @@ import {
   CREATE_REASON_ERROR,
   DELETE_REASON_SUCCESS,
   UPDATE_REASON_SUCCESS,
-} from "../types";
+} from '../types';
 
 const initialState = {
   isLoading: false,
@@ -80,14 +80,12 @@ export default (state = initialState, { type, payload }) => {
         values: {
           ...state.values,
           rows: state.values.rows.map((value) =>
-            value.reason_id !== payload.reason_id ? value : payload
+            value.reason_id !== payload.reason_id ? value : payload,
           ),
         },
       };
     case DELETE_REASON_SUCCESS:
-      const rows = state.values.rows.filter(
-        ({ reason_id }) => reason_id !== payload
-      );
+      const rows = state.values.rows.filter(({ reason_id }) => reason_id !== payload);
       return {
         ...state,
         isLoading: false,

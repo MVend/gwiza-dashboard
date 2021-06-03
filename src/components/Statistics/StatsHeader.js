@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import {
   faUserFriends,
@@ -12,8 +12,7 @@ import Box from "./Box";
 
 const StatsHeader = ({
   data: { groups, members, male, female, sim, noSim },
-}) => {
-  return (
+}) => (
     <Row className="mt-3">
       <Col>
         <Row>
@@ -40,6 +39,5 @@ const StatsHeader = ({
       </Col>
     </Row>
   );
-};
 
 export default StatsHeader;
