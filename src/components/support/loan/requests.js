@@ -30,9 +30,11 @@ const Requests = () => {
 
   useEffect(() => {
     setSearchText('');
-    dispatch(
-      sharedAction('get', `/support/loan/requests/${group_id}`, types.FETCH_GROUP_LOAN_REQUESTS),
-    );
+    if (group_id) {
+      dispatch(
+        sharedAction('get', `/support/loan/requests/${group_id}`, types.FETCH_GROUP_LOAN_REQUESTS),
+      );
+    }
   }, [group_id]);
 
   const handleSearch = (selectedKey) => setSearchText(selectedKey);
