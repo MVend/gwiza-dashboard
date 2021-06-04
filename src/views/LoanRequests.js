@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Input } from 'antd';
 import Container from '../components/container';
-import GroupsList from '../components/Support/shared/GroupsList';
-import Requests from '../components/Support/loan/requests';
+import GroupsList from '../components/support/shared/GroupsList';
+import Requests from '../components/support/loan/requests';
 
 const { Search } = Input;
 
@@ -10,7 +10,7 @@ const LoanRequests = () => {
   const [searchText, setSearchText] = useState('');
   return (
     <Container
-      pageTitle="Balances"
+      pageTitle="Loan Requests"
       extraHeaders={[
         <Search
           placeholder="Input search text"

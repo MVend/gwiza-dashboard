@@ -1,8 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
-import { Table, Badge, Button, Input, Space } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { Table, Badge, Button, Input, Space, Result } from 'antd';
+import { SearchOutlined, WalletOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { useParams } from 'react-router-dom';
 import Highlighter from 'react-highlight-words';
@@ -30,9 +30,11 @@ const Requests = () => {
 
   useEffect(() => {
     setSearchText('');
-    dispatch(
-      sharedAction('get', `/support/loan/requests/${group_id}`, types.FETCH_GROUP_LOAN_REQUESTS),
-    );
+    if (group_id) {
+      dispatch(
+        sharedAction('get', `/support/loan/requests/${group_id}`, types.FETCH_GROUP_LOAN_REQUESTS),
+      );
+    }
   }, [group_id]);
 
   const handleSearch = (selectedKey) => setSearchText(selectedKey);
@@ -104,7 +106,12 @@ const Requests = () => {
       ...getColumnSearchProps(),
     },
     { title: 'Request Date', dataIndex: 'request_date', key: 'request_date' },
-    { title: 'Amount Requested', dataIndex: 'amount_requested', key: 'amount_requested' },
+    {
+      title: 'Amount Requested',
+      dataIndex: 'amount_requested',
+      key: 'amount_requested',
+      responsive: ['sm'],
+    },
     {
       title: 'Interest Rate',
       dataIndex: 'interest_rate',
@@ -143,18 +150,29 @@ const Requests = () => {
   ];
 
   return (
-    <Table
-      className="components-table-demo-nested"
-      title={() => (
-        <h4>
-          {selectedGroup?.group_name} [{selectedGroup?.group_code}]
-        </h4>
+    <>
+      {!group_id && (
+        <Result
+          icon={<WalletOutlined />}
+          title="Select a group you want to see it's the requests"
+        />
       )}
-      loading={requestsResponse?.isLoading}
-      columns={columns}
-      expandable={{ expandedRowRender: (record) => expandedRowRender(record?.approvals) }}
-      dataSource={dataSource}
-    />
+      {group_id && (
+        <Table
+          className="components-table-demo-nested"
+          title={() => (
+            <h4>
+              {selectedGroup?.group_name} [{selectedGroup?.group_code}]
+            </h4>
+          )}
+          loading={requestsResponse?.isLoading}
+          columns={columns}
+          expandable={{ expandedRowRender: (record) => expandedRowRender(record?.approvals) }}
+          dataSource={dataSource}
+          rowKey="request_id"
+        />
+      )}
+    </>
   );
 };
 

@@ -55,3 +55,48 @@ body {
   overflow-y: auto;
   max-height: 610px;
 }
+
+.auth-container {
+  padding: 0 50px;
+  height: 100vh;
+  display: grid;
+  background-color: #011834;
+  place-items: center;
+}
+.auth-card {
+  height: fit-content;
+  width: 300px;
+  border-radius: 5px;
+}
+.gwiza--header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+.gwiza--menu {
+  position: relative !important;
+}
+.gwiza--user {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+
+.gwiza-mr-3 {
+  margin-right: 3px;
+}
+.gwiza-mt-3 {
+  margin-top: 3px;
+}
+.gwiza-mt-2 {
+  margin-top: 2px;
+}
+.pointer {
+  cursor: pointer;
+}
+.col-title {
+  display: flex;
+  justify-content: space-between;
+}

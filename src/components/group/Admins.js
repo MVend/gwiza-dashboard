@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Card, Col, Form, Row, Table, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
-import { findAll, remove } from '../../redux/actions/adminsActions';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
+import { findAll, remove } from '../../redux/actions/adminsActions';
 import NewAdmin from '../forms/NewAdmin';
 import { getLoggedUserInfo } from '../../utils/helpers';
 
@@ -34,7 +34,7 @@ const Admins = ({ admins, findAll, remove }) => {
     if (confirmed) return remove(admin_id);
   };
 
-  const isNotEmpty = !isLoading && totalItems < 1 ? false : true;
+  const isNotEmpty = !(!isLoading && totalItems < 1);
 
   return (
     <Row className="mt-3">

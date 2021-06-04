@@ -86,6 +86,7 @@ const SupportLayout = ({ fetchLogs, logs }) => {
           loading={logs?.logs?.isLoading}
           dataSource={dataSource}
           columns={columns}
+          rowKey="name"
           onRow={(record) => ({
             onDoubleClick: () => setSelectedFile(record?.name),
           })}
