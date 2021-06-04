@@ -33,6 +33,14 @@ export default (state = initialState, { type, payload }) => {
           data: payload?.data || [],
         },
       };
+    case types.FETCH_GROUP_LOAN_REQUESTS:
+      return {
+        ...state,
+        loanRequests: {
+          isLoading: payload?.isLoading || false,
+          data: payload?.data || [],
+        },
+      };
     default:
       return state;
   }

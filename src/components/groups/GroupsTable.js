@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Pagination, Spinner, Row, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
-import { findAll, search } from '../../redux/actions/groupsActions';
 import { faEdit, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { findAll, search } from '../../redux/actions/groupsActions';
 import NewGroup from '../forms/NewGroup';
 import Search from '../forms/Search';
 import { getLoggedUserInfo } from '../../utils/helpers';
@@ -43,7 +43,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
 
   const handleSearch = () => search({ ...paginater, searchHint });
 
-  const isNotEmpty = !isLoading && totalItems < 1 ? false : true;
+  const isNotEmpty = !(!isLoading && totalItems < 1);
 
   const PaginationItems = [];
   if (totalPages > 0 && totalPages < 4) {
@@ -52,7 +52,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
         <Pagination.Item
           key={i}
           onClick={() => setPaginater({ ...paginater, page: i })}
-          disabled={currentPage === i ? true : false}
+          disabled={currentPage === i}
         >
           {i + 1}
         </Pagination.Item>,
@@ -64,7 +64,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
       PaginationItems.push(
         <Pagination.Item
           onClick={() => setPaginater({ ...paginater, page: i })}
-          disabled={currentPage === i ? true : false}
+          disabled={currentPage === i}
         >
           {i + 1}
         </Pagination.Item>,
@@ -173,7 +173,7 @@ const GroupsTable = ({ groups, findAllGroups, search }) => {
                     {totalPages > 5 && <Pagination.Ellipsis />}
                     <Pagination.Item
                       onClick={() => setPaginater({ ...paginater, page: totalPages - 1 })}
-                      disabled={currentPage === totalPages - 1 ? true : false}
+                      disabled={currentPage === totalPages - 1}
                     >
                       {totalPages}
                     </Pagination.Item>

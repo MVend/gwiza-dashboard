@@ -47,8 +47,7 @@ const Balance = ({ fetchData, balances, groupBalances }) => {
             <Col className="col-sm col-md col-lg">
               {selectedGroup && (
                 <h4>
-                  {' '}
-                  Group Balances - {selectedGroup?.group_name} [{selectedGroup?.group_code}]{' '}
+                  Group Balances - {selectedGroup?.group_name} [{selectedGroup?.group_code}]
                 </h4>
               )}
             </Col>
@@ -58,7 +57,7 @@ const Balance = ({ fetchData, balances, groupBalances }) => {
               <Statistic
                 title="Share Balance"
                 precision={2}
-                value={share?.wallet_account_balance}
+                value={Intl.NumberFormat('en-US').format(share?.wallet_account_balance)}
                 loading={balances?.isLoading}
               />
             </Col>
@@ -83,7 +82,7 @@ const Balance = ({ fetchData, balances, groupBalances }) => {
               <Statistic
                 title="Loan Balance"
                 precision={2}
-                value={loan?.wallet_account_balance}
+                value={Intl.NumberFormat('en-US').format(loan?.wallet_account_balance)}
                 loading={balances?.isLoading}
               />
             </Col>
